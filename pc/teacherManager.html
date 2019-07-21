@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>讲师管理系统</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap-table/1.15.3/bootstrap-table.css">
+    <style>
+        .layout{
+            width: 80%;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+<!--添加讲师-->
+<div class="layout">
+    <a class="btn btn-success glyphicon glyphicon-plus" data-toggle="modal" data-toggle="modal" data-target="#teacherWindow">添加讲师</a>
+    <!--模态框内容-->
+    <div class="modal fade" tabindex="-1" role="dialog" id="teacherWindow">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">添加讲师</h4>
+                </div>
+                <div class="modal-body">
+
+                    <!--表单内容-->
+                    <form id="teacherForm">
+                        <div class="form-group">
+                            <label for="username">讲师姓名</label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="讲师姓名">
+                        </div>
+                        <div class="form-group">
+                            <label for="age">年龄</label>
+                            <input type="text" class="form-control" id="age" name="age" placeholder="年龄">
+                        </div>
+                        <div class="form-group">
+                            <label for="lesson">所属学科</label>
+                            <input type="text" class="form-control" id="lesson" name="lesson" placeholder="所属学科">
+                        </div>
+                        <div class="form-group">
+                            <label for="other">描述</label>
+                            <input type="text" class="form-control" id="other" name="other" placeholder="备注">
+                        </div>
+                        <div class="form-group">
+                            <label>照片</label>
+                            <input type="file" name="lifephoto" id="lifephoto" data-url="../api/teacherUpload.php">
+                        </div>
+
+                        <div class="form-group img-area-file">
+                            <div style="border: 3px solid #ccc;width: 120px;">
+
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary btn-addTeacher">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--使用table去做数据展示(extjs、bootstrap.table.js)-->
+    <div class="tableId" style="margin-top: 10px;">
+        <table id="teacherTableId"></table>
+    </div>
+
+    <div id="main" style="width: 600px;height: 400px;"></div>
+
+    <div id="piechart" style="width: 600px;height: 400px;"></div>
+</div>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+
+<!--引入bootstrap-table-js-->
+<script src="https://cdn.bootcss.com/bootstrap-table/1.15.3/bootstrap-table.js"></script>
+<!--table插件的翻译-->
+<script src="https://cdn.bootcss.com/bootstrap-table/1.15.3/locale/bootstrap-table-zh-CN.js"></script>
+
+<!--文件上传-->
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="../assets/jquery.iframe-transport.js"></script>
+<script src="../assets/jquery.fileupload.js"></script>
+
+<script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script>
+
+<script src="./js/teacher.js"></script>
+
+</body>
+</html>
